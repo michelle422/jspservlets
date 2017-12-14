@@ -1,7 +1,6 @@
 package be.vdab.servlets;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

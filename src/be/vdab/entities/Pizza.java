@@ -9,15 +9,13 @@ public class Pizza {
 	private boolean pikant;
 	// je maakt getters voor alle private variabelen
 	public Pizza(String naam, BigDecimal prijs, boolean pikant) {
-		this.naam = naam;
-		this.prijs = prijs;
-		this.pikant = pikant;
+		setNaam(naam);
+		setPrijs(prijs);
+		setPikant(pikant);
 	}
 	public Pizza(long id, String naam, BigDecimal prijs, boolean pikant) {
-		this.id = id;
-		this.naam = naam;
-		this.prijs = prijs;
-		this.pikant = pikant;
+		this(naam, prijs, pikant);
+		setId(id);
 	}
 	public void setId(long id) {
 		this.id = id;
@@ -44,4 +42,17 @@ public class Pizza {
 	public static boolean isPrijsValid(BigDecimal prijs) {
 		 return prijs != null && prijs.compareTo(BigDecimal.ZERO) >= 0;
 	}
+	public long getId() {
+		return id;
+	}
+	public String getNaam() {
+		return naam;
+	}
+	public BigDecimal getPrijs() {
+		return prijs;
+	}
+	public boolean isPikant() {
+		return pikant;
+	}
+	
 }

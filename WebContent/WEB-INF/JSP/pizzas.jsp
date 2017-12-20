@@ -4,10 +4,10 @@
 <!doctype html>
 <html lang='nl'>
 	<head>
-		<title>Pizza's</title>
-		<link rel='icon' href='images/favicon.ico'>
-		<meta name='viewport' content='width=device-width,initial-scale=1'>
-		<link rel='stylesheet' href='styles/default.css'>
+<!-- 		<title>Pizza's</title> -->
+<!-- 		<link rel='icon' href='images/favicon.ico'> -->
+<!-- 		<meta name='viewport' content='width=device-width,initial-scale=1'> -->
+<!-- 		<link rel='stylesheet' href='styles/default.css'> -->
 		<c:import url='/WEB-INF/JSP/head.jsp'>
  			<c:param name='title' value="Pizza's"/>
 		</c:import>
@@ -21,23 +21,34 @@
 			</c:forEach>
 		</h1>
 		<ul class='zebra'>
-			<c:forEach var='entry' items='${pizzas}'>
-				<li>
-					${entry.key}: <c:out value='${entry.value.naam}' /> ${entry.value.prijs}&euro
-					<c:choose>
-						<c:when test='${entry.value.pikant}'>
-							pikant
-						</c:when>
-						<c:otherwise>
-							niet pikant
-						</c:otherwise>
-					</c:choose>
+			<c:forEach var='pizza' items='${pizzas}'>
+				<li>${pizza.id}:
+					<c:out value='${pizza.naam}'/> ${pizza.prijs} &euro;
+					${pizza.pikant ? "pikant" : "niet pikant"}
 					<c:url value='/pizzas/detail.htm' var='detailURL'>
- 						<c:param name='id' value='${entry.key}'/>
+						<c:param name='id' value="${pizza.id}"/>
 					</c:url>
-					<a href='${detailURL}'>Detail</a>
+					<a href="<c:out value='${detailURL}'/>">Detail</a>
 				</li>
 			</c:forEach>
+		
+<%-- 			<c:forEach var='entry' items='${pizzas}'> --%>
+<!-- 				<li> -->
+<%-- 					${entry.key}: <c:out value='${entry.value.naam}' /> ${entry.value.prijs}&euro --%>
+<%-- 					<c:choose> --%>
+<%-- 						<c:when test='${entry.value.pikant}'> --%>
+<!-- 							pikant -->
+<%-- 						</c:when> --%>
+<%-- 						<c:otherwise> --%>
+<!-- 							niet pikant -->
+<%-- 						</c:otherwise> --%>
+<%-- 					</c:choose> --%>
+<%-- 					<c:url value='/pizzas/detail.htm' var='detailURL'> --%>
+<%--  						<c:param name='id' value='${entry.key}'/> --%>
+<%-- 					</c:url> --%>
+<%-- 					<a href='${detailURL}'>Detail</a> --%>
+<!-- 				</li> -->
+<%-- 			</c:forEach> --%>
 		</ul>
 	</body>
 </html>

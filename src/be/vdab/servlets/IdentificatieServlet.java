@@ -26,8 +26,12 @@ public class IdentificatieServlet extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		if (session != null) {
 			String gebruikersnaam = (String) session.getAttribute("gebruikersnaam");
+			String mandje = (String) session.getAttribute("mandje");
 			if (gebruikersnaam != null) {
 				request.setAttribute("gebruikersnaam", gebruikersnaam);
+			}
+			if (mandje != null) {
+				request.setAttribute("mandje", mandje);
 			}
 		}
 		
@@ -49,6 +53,7 @@ public class IdentificatieServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		session.setAttribute("gebruikersnaam", request.getParameter("gebruikersnaam"));
+		session.setAttribute("mandje", request.getParameter("mandje"));
 //		Cookie cookie = new Cookie("gebruikersnaam", URLEncoder.encode(request.getParameter("gebruikersnaam"), "UTF-8"));
 //		cookie.setMaxAge(COOKIE_MAXIMUM_LEEFTIJD);
 //		response.addCookie(cookie);

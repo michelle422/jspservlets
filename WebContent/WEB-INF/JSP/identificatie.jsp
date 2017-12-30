@@ -11,7 +11,7 @@
 		<c:import url='/WEB-INF/JSP/menu.jsp'/>
 		<h1>Identificatie</h1>
 		<form method='post'>
-			<label>Naam<input name='gebruikersnaam' value='${cookie.gebruikersnaam.value}'
+			<label>Naam<input name='gebruikersnaam' value='${gebruikersnaam}'
 			autofocus></label>
 			<input type='submit' value='Onthoud me'>
 		</form>

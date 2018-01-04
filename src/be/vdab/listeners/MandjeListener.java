@@ -51,6 +51,6 @@ public class MandjeListener implements ServletContextListener, HttpSessionAttrib
 	/**
      * @see HttpSessionAttributeListener#attributeReplaced(HttpSessionBindingEvent)
      */
-    public void attributeReplaced(HttpSessionBindingEvent arg0)  { 
+    public void attributeReplaced(HttpSessionBindingEvent event)  { 
     }
 }

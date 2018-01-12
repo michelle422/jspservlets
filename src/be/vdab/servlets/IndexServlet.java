@@ -1,6 +1,7 @@
 package be.vdab.servlets;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.servlet.ServletException;
@@ -28,6 +29,9 @@ public class IndexServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
+		LocalDate nu = LocalDate.now();
+		request.setAttribute("nu", nu);
+		request.setAttribute("aantalPizzasVerkocht", 23000);
 		request.setAttribute("emailAdresWebMaster", this.getServletContext().getInitParameter("emailAdresWebMaster"));
 		request.setAttribute("aantalKeerBekeken", aantalKeerBekeken.incrementAndGet());
 		((AtomicInteger) this.getServletContext().getAttribute(INDEX_REQUESTS)).incrementAndGet();

@@ -1,6 +1,7 @@
 <%-- Een welkom pagina --%>
 <%@page contentType='text/html' pageEncoding='UTF-8' session='false'%>
 <%@taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core'%>
+<%@taglib prefix='fmt' uri='http://java.sun.com/jsp/jstl/fmt'%>
 <%@page import='java.time.LocalDateTime'%>
 <%@page import='be.vdab.entities.Persoon'%>
 <%@page import='be.vdab.entities.Adres'%>
@@ -15,6 +16,8 @@
 			<c:param name='title' value="Pizza's" />
 		</c:import>
 	</head>
+	<fmt:parseDate value="${nu}" pattern="yyyy-MM-dd" var="nuAlsDate" type="date"/>
+	<div>Vandaag: <fmt:formatDate value="${nuAlsDate}" type='date' dateStyle='long'/></div>
 	<body>
 		<c:import url='/WEB-INF/JSP/menu.jsp'/>
 		<h1>Pizza Luigi</h1>
@@ -29,6 +32,8 @@
 				 <dt>Adres</dt>
 				 <dd>${zaakvoerder.adres.straat} ${zaakvoerder.adres.huisNr}<br>
 				 	${zaakvoerder.adres.postcode} ${zaakvoerder.adres.gemeente}</dd>
+				 <dt>Aantal pizza's verkocht</dt>
+				 <dd><fmt:formatNumber value='${aantalPizzasVerkocht}'/></dd>
 			</dl>
 		<div>Deze pagina werd ${aantalKeerBekeken} keer bekeken.</div>
 		<div>WebMaster:

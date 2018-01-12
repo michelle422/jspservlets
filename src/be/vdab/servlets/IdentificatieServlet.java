@@ -1,6 +1,7 @@
 package be.vdab.servlets;
 
 import java.io.IOException;
+import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,13 +27,18 @@ public class IdentificatieServlet extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		if (session != null) {
 			String gebruikersnaam = (String) session.getAttribute("gebruikersnaam");
-			String mandje = (String) session.getAttribute("mandje");
+			@SuppressWarnings("unchecked")
+			Set<Long> mandje = (Set<Long>) session.getAttribute("mandje");
 			if (gebruikersnaam != null) {
 				request.setAttribute("gebruikersnaam", gebruikersnaam);
 			}
 			if (mandje != null) {
 				request.setAttribute("mandje", mandje);
 			}
+		}
+		String locale = request.getParameter("locale");
+		if (locale != null) {
+			request.getSession().setAttribute("locale", locale);
 		}
 		
 //		if (request.getCookies() != null) {
@@ -50,7 +56,6 @@ public class IdentificatieServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		session.setAttribute("gebruikersnaam", request.getParameter("gebruikersnaam"));
 		session.setAttribute("mandje", request.getParameter("mandje"));

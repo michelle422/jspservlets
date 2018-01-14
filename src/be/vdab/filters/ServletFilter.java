@@ -7,12 +7,12 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
+//import javax.servlet.annotation.WebFilter;
 
 /**
  * Servlet Filter implementation class ServletFilter
  */
-@WebFilter("*.htm")
+//@WebFilter("*.htm")
 public class ServletFilter implements Filter {
 
 	/**

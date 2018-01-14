@@ -4,7 +4,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import javax.servlet.annotation.WebListener;
+//import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionAttributeListener;
 import javax.servlet.http.HttpSessionBindingEvent;
 
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSessionBindingEvent;
  * Application Lifecycle Listener implementation class MandjeListener
  *
  */
-@WebListener
+//@WebListener
 public class MandjeListener implements ServletContextListener, HttpSessionAttributeListener {	
 	private static final String MANDJE = "mandje";
 	private static final String AANTAL_MANDJES = "aantalMandjes";
